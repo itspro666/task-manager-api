@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+        <p>Spring Boot + JPA + Lombok demo</p>
+    </header>
+
+    <main>
+        <div id="message" class="message hidden"></div>
+
+        <section class="card">
+            <h2>Add Task</h2>
+            <form id="task-form">
+                <input id="title" type="text" placeholder="Title" maxlength="100" required>
+                <textarea id="description" placeholder="Description (optional)" maxlength="500" rows="2"></textarea>
+                <div class="row">
+                    <select id="status">
+                        <option value="TODO">To Do</option>
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="DONE">Done</option>
+                    </select>
+                    <input id="dueDate" type="date">
+                    <select id="categoryId">
+                        <option value="">No category</option>
+                    </select>
+                </div>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <div class="toolbar">
+                <h2>Tasks</h2>
+                <div id="filters">
+                    <button class="filter active" data-status="">All</button>
+                    <button class="filter" data-status="TODO">To Do</button>
+                    <button class="filter" data-status="IN_PROGRESS">In Progress</button>
+                    <button class="filter" data-status="DONE">Done</button>
+                </div>
+            </div>
+            <ul id="task-list"></ul>
+        </section>
+
+        <section class="card">
+            <h2>Categories</h2>
+            <form id="category-form" class="row">
+                <input id="category-name" type="text" placeholder="New category" maxlength="50" required>
+                <button type="submit">Add</button>
+            </form>
+            <ul id="category-list"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
